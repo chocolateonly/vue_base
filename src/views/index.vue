@@ -17,6 +17,7 @@ export default {
 .content{
   span{
     color: red;
+    font-size: 20px;
   }
 }
 </style>

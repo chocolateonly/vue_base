@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^3.8.3",
     "element-ui": "^2.15.13",
+    "postcss-pxtorem": "^6.0.0",
     "vue": "^2.6.14",
     "vue-router": "^3.6.5",
     "vuex": "^4.1.0"
