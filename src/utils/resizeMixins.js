@@ -1,5 +1,5 @@
 // 混入代码 resize-mixins.js
-import { debounce } from '@/utils/index';
+import { debounce } from '@/utils/debounce';
 const resizeChartMethod = '$__resizeChartMethod';
 
 export default {

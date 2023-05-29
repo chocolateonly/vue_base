@@ -1,3 +1,6 @@
+
+axios封装;
+
 flexible rem适配不同端；
 
 postcss-pxtorem 编码px转rem; 
