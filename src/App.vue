@@ -9,6 +9,9 @@
 </script>
 
 <style>
+*{
+    margin: auto;
+}
 #app {
 }
 </style>

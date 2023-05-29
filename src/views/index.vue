@@ -1,5 +1,5 @@
 <template>
-    <div class="flexRow1">
+    <div class="content flexRow1">
        <china-map></china-map>
     </div>
 </template>
@@ -14,5 +14,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.content{
+  width: 100vw;
+  height: 100vh;
+}
 </style>
