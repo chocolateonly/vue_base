@@ -1,23 +1,18 @@
 <template>
-    <div class="content">
-         <span> 内容</span>
-        <el-button type="primary">提交</el-button>
+    <div class="flexRow1">
+       <china-map></china-map>
     </div>
 </template>
 
 <script>
-export default {
-    methods:{
+import ChinaMap from "@/components/chinaMap.vue";
 
-    }
+export default {
+    components: {ChinaMap}
+
 }
 </script>
 
 <style lang="scss" scoped>
-.content{
-  span{
-    color: red;
-    font-size: 20px;
-  }
-}
+
 </style>
