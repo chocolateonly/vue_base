@@ -10,6 +10,5 @@
 
 <style>
 #app {
-
 }
 </style>
