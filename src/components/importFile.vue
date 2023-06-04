@@ -22,6 +22,7 @@
 
 <script>
 import { hashApi } from '../api';
+import {baseUrl} from "@/config";
 
 export default {
   name:'importFile',
@@ -40,16 +41,16 @@ export default {
         // 是否禁用上传
         isUploading: false,
         // 设置上传的请求头部
-        headers: { token: localStorage.getItem('zhibiao_token') },
+        headers: { token: localStorage.getItem('token') },
         // 上传的地址
-        url: process.env.API_BASEURL + '/schools/import'
+        url: baseUrl + '/schools/import'
       },
     }
   },
   methods:{
     //打开
     open(){
-      if(this.upload_url) this.upload.url = process.env.API_BASEURL + this.upload_url
+      if(this.upload_url) this.upload.url = baseUrl + this.upload_url
       this.upload.open = true
     },
     //关闭

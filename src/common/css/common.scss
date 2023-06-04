@@ -1,0 +1,212 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Microsoft YaHei', 'PingFang SC';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0;
+    margin: 0;
+    background-color: #ffffff;
+    // background-color: #f5f7fa;
+    font-size: 14px;
+    width: 100%;
+    min-width: 1024px;
+    min-height: 100vh;
+    overflow-y: hidden;
+}
+
+li {
+    list-style: none;
+}
+
+.containt {
+    flex: 1;
+    overflow-y: hidden;
+}
+
+.main {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+    background: #f5f7fa;
+}
+.details{
+    background-color: #fff;
+}
+.el-table .cell,
+.el-table--border td:first-child .cell,
+.el-table--border th:first-child .cell {
+    padding-left: 24px !important;
+}
+
+.el-table--border th {
+    border-bottom: 1px solid #ebeef5;
+    background-color: #f6f6fa;
+}
+.box_flex{
+    margin-bottom: 20px;
+        .tab_l{
+            
+            line-height: 40px;
+        }
+        .tab_r{
+            line-height: 40px;
+        }
+}
+.imgview .imgs {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 0 10px 10px 0;
+}
+// .el-button--text{
+//     color: #2f39ff;
+//   }
+//   body .el-button--primary,.el-switch.is-checked .el-switch__core{
+//     background-color: #2f39ff!important;
+//     // color: #fff;
+//     border:1px solid #2f39ff!important;
+//   }
+// body .el-button--primary:active{
+//   background: #2f39ff!important;
+//   border-color: #2f39ff!important;
+// }
+.el-dialog__header {
+    padding: 10px 20px !important;
+    background-color: #f7f6fb;
+}
+
+.el-table th {
+    background-color: #f7f6fb !important;
+}
+
+.el-dialog__headerbtn {
+    top: 15px !important;
+}
+
+// .el-button--text:active{
+//   color: #2f39ff;
+// }
+// .el-button--text:focus, .el-button--text:hover{
+//   color: #2f39ff;
+// }
+// .el-message-box__headerbtn:focus .el-message-box__close, .el-message-box__headerbtn:hover .el-message-box__close{
+//   color: #2f39ff;
+// }
+// .el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner{
+//   background: #2f39ff!important;
+//   border-color: #2f39ff!important;
+// }
+// .el-checkbox__inner:hover{
+//   border-color: #2f39ff!important;
+// }
+// .el-dialog__headerbtn:focus .el-dialog__close, .el-dialog__headerbtn:hover .el-dialog__close{
+//   color: #2f39ff!important;
+// }
+// .el-pagination.is-background .el-pager li:not(.disabled).active{
+//   background-color: #2f39ff!important;
+// }
+// .el-input.is-active .el-input__inner, .el-input__inner:focus{
+//   border-color: #2f39ff;
+// }
+.home_table .el-button--small,
+.el-button--small.is-round {
+    padding: 0px !important;
+}
+
+// #app .el-scrollbar__wrap{
+//   overflow-y: hidden!important;
+// }
+// @import './normalize.scss';//重置样式
+// 分页
+.pagination {
+    padding: 20px;
+    // overflow: hidden;
+    text-align: right;
+}
+
+.el-dialog__wrapper .el-dialog__body {
+    padding: 20px;
+}
+
+// 弹窗确定按钮
+.dialog-footer {
+    text-align: center;
+    padding-top: 0;
+    .btn {
+        width: 250px;
+    }
+}
+//
+///deep/.v-modal {
+//    top: 50px;
+//}
+//
+///deep/.el-dialog__wrapper {
+//    top: 50px;
+//}
+
+.imgStyles {
+    height: 100%;
+    width: 100%;
+    line-height: 100px;
+    text-align: center;
+    background: #f5f7fa;
+    color: #c0c4cc;
+}
+
+.popoverA {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.guide .el-link.el-link--default {
+    color: #2f39ff;
+}
+
+.conts_box {
+    // width: 80%;
+    margin: 30px auto 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    .box_flex {
+        width: 26%;
+        margin-bottom: 20px;
+        .tab_l {
+            line-height: 40px;
+        }
+    }
+    .box_flex:nth-child(3n-1) {
+        margin: 0 11%;
+    }
+}
+
+.conts {
+    height: auto;
+    // width: 80%;
+    margin: 0 auto;
+}
+
+.ql-editor {
+    p {
+        img {
+            max-width: 300px;
+            max-height: 200px;
+        }
+    }
+}
+
+.cont_top_search {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    .cont_top_s_box {
+        width: 150px;
+        margin: 20px;
+    }
+}

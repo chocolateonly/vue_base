@@ -10,6 +10,7 @@ class NewAxios{
 
         this.instance.interceptors.request.use(
             (config) => {
+                if(config.method=='get') config.params = config.data
                 if (config && config.headers) {
                     config.headers['token'] = localStorage.getItem('token') || ''
                 }

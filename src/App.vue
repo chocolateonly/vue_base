@@ -8,7 +8,10 @@
 
 </script>
 
-<style>
+<style lang="scss">
+*{
+  margin: 0;
+}
 #app {
 }
 </style>

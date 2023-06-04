@@ -1,8 +1,7 @@
 import {PUBLIC_KEY} from '@/config/index'
 import '@/utils/jssm2.js'
 import { JSSM3 } from '@/utils/jssm3.js'
-const JM4_Obj = require('@/utils/jssm4.js');
-const JM4 = JM4_Obj.JSSM4;
+const JM4 = require('@/utils/jssm4.js');
 
 
 
