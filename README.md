@@ -1,4 +1,3 @@
-
 axios封装;
 
 flexible rem适配不同端；
