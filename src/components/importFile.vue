@@ -1,4 +1,44 @@
 <template>
+<!--  导入 上传文件及下载模板组件  -->
+<!--
+使用方法：
+    <import-file ref='importFile' @getTemplate='getTemplate' page_hash='distributionPlanForSchoolList' upload_url='/metrics/import' @getList='onSearch' />
+        // 导入模板下载
+        getTemplate() {
+            this.axios.post(metricsExportTemplateApi, {})
+                .then(res => {
+                    if (res.data.url) {
+                        window.location.href = process.env.API_BASEURL + res.data.url;
+                    }
+                }).catch(e => e);
+        },
+        // 导入按钮操作
+        handleImport() {
+            this.$refs.importFile.open();
+        },
+-->
+<!--
+//导出
+onExport() {
+    this.axios.post(metricsResExportApi, {
+        region_id: this.search_data.select_area,
+        school_id: this.search_data.select_school
+    }, { responseType: 'arraybuffer' })
+        .then(res => {
+            const aLink = document.createElement('a');
+            let blob = new Blob([res.data], { type: "application/vnd.ms-excel" });
+            aLink.href = window.URL.createObjectURL(blob);
+            aLink.setAttribute('download', '各校指标分配' + '.xlsx');
+            aLink.click();
+            window.URL.revokeObjectURL(aLink.href);
+            this.$message({
+                message: '导出成功',
+                type: 'success'
+            })
+        }).catch(e => e)
+},
+
+-->
   <div>
     <el-dialog :title="upload.title" v-dialogDrag class="dialogStyle" :visible.sync="upload.open" width="400px" append-to-body>
       <el-upload ref="upload" :limit="1" accept=".xlsx, .xls" :headers="upload.headers" :action="upload.url" :disabled="upload.isUploading" :data="scObj" :on-progress="handleFileUploadProgress" :on-success="handleFileSuccess" :on-error='handleFileError' :auto-upload="false" :before-upload="beforeUpload" drag>
