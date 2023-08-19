@@ -48,7 +48,7 @@ li {
 .box_flex{
     margin-bottom: 20px;
         .tab_l{
-            
+
             line-height: 40px;
         }
         .tab_r{
@@ -208,5 +208,60 @@ li {
     .cont_top_s_box {
         width: 150px;
         margin: 20px;
+    }
+}
+
+
+//页面头部
+.head {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 25px 12px 25px;
+
+    .headLeft {
+        .el-input {
+            width: 215px;
+            margin-top: 12px;
+            margin-right: 10px;
+        }
+        .el-button{
+            margin-top: 12px;
+        }
+        .el-button--primary {
+            color: #2f39ff;
+            background: #fff;
+            margin-left: 10px;
+        }
+
+        .el-button--primary:hover {
+            color: #fff;
+            background-color: #2f39ff;
+        }
+        .el-date-editor{
+            margin-top: 12px;
+            margin-right: 10px;
+        }
+    }
+
+    .headRight {
+        margin-top: 12px;
+        .el-button {
+            margin: 0px;
+        }
+    }
+}
+
+ .el-dialog__body {
+    max-height: 650px !important;
+    overflow: auto; // 弹窗中超出内容添加滚动条
+}
+
+// 弹窗确定按钮
+.dialog-footer {
+    text-align: center;
+    padding-top: 0px;
+    margin: 10px 0;
+    .btn {
+        width: 250px;
     }
 }

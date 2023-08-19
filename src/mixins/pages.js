@@ -5,39 +5,39 @@ export default {
       search: {
         keyword: ''
       },
-      tableData: [],
-      // tableData: [{
-      //   'id': 28,
-      //   'create_time': '2023-05-16 12:05:38',
-      // }],
+      // tableData: [],
+      tableData: [{
+        'id': 28,
+        'create_time': '2023-05-16 12:05:38',
+      }],
       isLoading: false,
-      tableHeight: window.innerHeight - 180 - 150,
-      page: 1,
+      tableHeight: window.innerHeight - 180,
+      pageNum: 1,
       pageSize: pageSize,//15,
       total: 0,//总条数
       minTotalPageSize: pageSize,
-      pageSizes: [1, 10, 15, 30, 50],
+      pageSizes: [1, 15, 30, 50, 100],
       isInit: true
     };
   },
-  beforeMount() {
+  mounted() {
     if (this.isInit) this.onInit()
   },
   methods: {
     handleSizeChange(newSize) {
-      this.page = 1;
+      this.pageNum = 1;
       this.pageSize = newSize;
-      this.getTableData();
+      this.getList();
     },
     handleCurrentChange(newPage) {
-      this.page = newPage;
-      this.getTableData();
+      this.pageNum = newPage;
+      this.getList();
     },
     //初始化page
     onSearch() {
       this.pageSize = pageSize;
-      this.page = 1;
-      this.getTableData();
+      this.pageNum = 1;
+      this.getList();
     },
     //初始化所有参数
     onInit() {

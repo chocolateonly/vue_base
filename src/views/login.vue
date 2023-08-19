@@ -81,7 +81,7 @@ export default {
         // 验证码
         changeImgCode() {
             this.codeId = Math.ceil(Math.random() * 10111110);//生成一个随机数（防止缓存）
-            this.imgCode = baseUrl + "/EntryCaptcha?id=" + this.codeId;
+            this.imgCode = baseUrl + "/api/EntryCaptcha?id=" + this.codeId;
         },
 
         // 登录

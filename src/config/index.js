@@ -14,7 +14,7 @@ export const PUBLIC_KEY = '-----BEGIN EC PUBLIC KEY-----\n' +
 
 export const baseUrl = process.env.NODE_ENV === 'production' ?
     "https://rsbi-api.relationshipapp.com/" : //正式
-    "http://xwcs.xyruxue.com" //测试
+    "https://xwcs.xyruxue.com" //测试
 
 
 const cidServiceAxios = new NewAxios({
