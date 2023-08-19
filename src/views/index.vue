@@ -10,6 +10,7 @@
             </div>
             <div class="headRight">
                 <el-button type="primary" icon="el-icon-plus" size="small" @click="getList()">新增</el-button>
+                <el-button type="primary" icon="el-icon-plus" size="small" @click="getList()">导入</el-button>
             </div>
         </div>
 
