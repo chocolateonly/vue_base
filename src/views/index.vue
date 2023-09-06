@@ -19,12 +19,14 @@
         <div class="home_table">
             <el-table :data='tableData' border v-loading='isLoading' element-loading-background='rgba(0, 0, 0, 0.4)' :max-height='tableHeight' size='medium' :row-style="{height:'44px'}" :cell-style="{padding: 0}">
                 <template v-for='(item,index) in tableHead'>
-                    <el-table-column :type="item.type" :prop='item.prop' :label='item.title' :width="item.width" :min-width='item.minWidth' align='left' :key="index" show-overflow-tooltip></el-table-column>
+
+                    <el-table-column v-if="item.type=='index'" label="序号" align="center" width="80px" type="index" :index="(pageNum-1)*pageSize+index+1"></el-table-column>
+                    <el-table-column v-else :type="item.type" :prop='item.prop' :label='item.title' :width="item.width" :min-width='item.minWidth' align='left' :key="index" show-overflow-tooltip></el-table-column>
                 </template>
                 <el-table-column label='操作' fixed='right' width='200'>
                     <template slot-scope='scope'>
-                        <el-button @click="onShow(scope.row)" type="text" size="small">查看</el-button>
-                        <el-button @click="onHandle(scope.row)" type="text" size="small" style="color: #ff2b2b">处置</el-button>
+                        <el-button @click="onShow(scope.row)" type="text" size="mini">查看</el-button>
+                        <el-button @click="onHandle(scope.row)" type="text" size="mini" style="color: #ff2b2b">处置</el-button>
                     </template>
                 </el-table-column>
             </el-table>
@@ -78,6 +80,12 @@
                 <el-form-item label='处置结果：' prop='remark'>
                     <el-input v-model='form.remark' type='textarea'  size="small" :autosize="{ minRows: 4, maxRows: 6 }"/>
                 </el-form-item>
+<!--                <el-select v-model='search_data.region_id' placeholder='请选择所属区域' size='small' clearable>
+                    <el-option value='' label='全部区域'></el-option>
+                    <el-option v-for='(item,index) in resource.region' :key='index' :value='item.id' :label='item.region_name'></el-option>
+                </el-select>
+-->
+
 
             </el-form>
 
@@ -264,6 +272,46 @@ export default {
             console.log(item);
             this.form.id = item.id;
             this.showHandleDialog = true;
+        },
+        // 删除
+        async onDelete() {
+            this.$confirm("管理账号删除须谨慎，确认要删除吗？", "提示", {
+                confirmButtonText: "确定",
+                cancelButtonText: "取消",
+                type: 'warning',
+            })
+                .then(async () => {
+                    let data = {
+                        // id: this.user_id,  // 每行数据的id
+                    };
+                    const res = await this.axios.post('manageDelApi', data)
+                    if (res.data.code == 1) {
+                        this.$message({
+                            showClose: true,
+                            message: res.data.msg,
+                            type: 'success'
+                        });
+                        if ((this.total - 1) % this.pageSize === 0 && this.total > 1) {
+                            this.pageNum -= 1;
+                        }
+                        this.$nextTick(() => {
+                            this.getList();
+                        });
+                    } else {
+                        this.$message({
+                            showClose: true,
+                            message: res.data.msg,
+                            type: "error"
+                        });
+                    }
+                    this.getHash();
+                })
+                .catch(() => {
+                    this.$message({
+                        type: "info",
+                        message: "已取消删除"
+                    });
+                });
         },
         async getList() {
             try {

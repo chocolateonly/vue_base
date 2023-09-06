@@ -1,3 +1,17 @@
+/*//上传超限隐藏按钮*/
+.upload-hide .el-upload--picture-card{
+	display: none;
+}
+
+/*//上传删除动画移除*/
+  .el-list-enter-active,
+  .el-list-leave-active {
+	  -webkit-transition: none !important;
+	  transition: none !important;
+  }
+.el-upload-list__item-actions{
+	transition: none !important;
+}
 
 /*flex*/
 
