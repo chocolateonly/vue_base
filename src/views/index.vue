@@ -105,6 +105,7 @@
 import pages from './../mixins/pages';
 import { studentCardListApi, uploadApi, studentCardHandleApi, hashApi, studentCardDetailApi } from './../api/index';
 import { baseUrl } from "@/config";
+import {phoneRegex} from "@/utils/regex";
 
 export default {
     name: 'list',
@@ -141,6 +142,10 @@ export default {
             rules: {
                 remark: [
                     {required: true, message: '请输入处置结果', trigger: 'blur'}
+                ],
+                telephone:[
+                    {required: true, message: '请输入联系电话', trigger: 'blur'},
+                    {message: '电话格式不正确', trigger: 'blur', pattern: phoneRegex},
                 ]
             },
             hash: '',
