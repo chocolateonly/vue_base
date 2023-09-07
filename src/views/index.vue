@@ -171,6 +171,18 @@ export default {
 
     },
     methods: {
+        //验证数字
+        checkNumber(key, valid) {
+            if (Object.keys(valid).includes('min') && this.form[key] < valid.min) {
+                this.form[key] = valid.min
+            }
+            if (Object.keys(valid).includes('max') && this.form[key] > valid.max) {
+                this.form[key] = valid.max
+            }
+            if (Object.keys(valid).includes('is_int') && valid.is_int) {
+                this.form[key] = parseInt(this.form[key])
+            }
+        },
         //关闭详情
         closeDetail() {
             this.showDialog = false;
