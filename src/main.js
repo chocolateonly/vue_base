@@ -22,3 +22,12 @@ new Vue({
   store,
   render: h => h(App),
 }).$mount('#app')
+
+//统一设置输入框可输入最大长度
+// document.addEventListener('input',e=>{
+//   console.log(e.target.type)
+//   console.log(e.target.getAttribute('maxlength'))
+//   if(!e.target.getAttribute('maxlength')&&e.target.type=='text'){
+//     e.target.setAttribute('maxlength',2)
+//   }
+// })
