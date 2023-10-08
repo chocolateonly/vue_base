@@ -1,6 +1,6 @@
 <template>
     <div v-if="showTags" class="tags">
-        <ul>
+        <ul ref="scrollWrapper">
             <li v-for="(item,index) in tagsList" :key="index" class="tags-li" :class="{'active': isActive(item.path)}" :title="item.title">
                 <router-link :to="item.path" class="tags-li-title">
                     {{ item.title }}
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import bus from '../utils/bus';
+import bus from './bus';
 export default {
     data() {
         return {
@@ -42,6 +42,7 @@ export default {
     watch: {
         $route(newValue) {
             this.setTags(newValue);
+            this.moveToCurrentTag()
         }
     },
     created() {
@@ -64,7 +65,21 @@ export default {
             }
         })
     },
+    mounted() {
+        this.moveToCurrentTag()
+    },
     methods: {
+        moveToCurrentTag(){
+            this.$nextTick(()=>{
+                const exist = this.tagsList.findIndex(item=>item.path==this.$route.path)
+                if(exist>-1){
+                    this.$refs.scrollWrapper.scrollLeft = document.getElementsByClassName('tags-li')[exist].offsetLeft - 3
+                }else{
+                    this.$refs.scrollWrapper.scrollLeft = 999999
+                }
+
+            })
+        },
         isActive(path) {
             return path === this.$route.fullPath;
         },
@@ -123,7 +138,7 @@ export default {
 <style lang="scss" scoped>
 .tags {
     position: relative;
-    height: 32px;
+    height: 35px;
     overflow: hidden;
     background: #fff;
     padding-right: 60px;
@@ -135,10 +150,14 @@ export default {
     box-sizing: border-box;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+    position: relative;
 }
 
 .tags-li {
-    float: left;
+    //float: left;
     margin: 4px 5px 2px 3px;
     border-radius: 3px;
     font-size: 12px;
@@ -154,6 +173,7 @@ export default {
     -webkit-transition: all 0.3s ease-in;
     -moz-transition: all 0.3s ease-in;
     transition: all 0.3s ease-in;
+    display: inline-block;
 }
 
 .tags-li:not(.active):hover {
@@ -195,5 +215,24 @@ export default {
     .el-icon--right {
         margin-left: 0;
     }
+}
+
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+:hover::-webkit-scrollbar-track {
+    background-color:rgba(241,241,241,0.3);
+}
+
+:hover::-webkit-scrollbar-thumb {
+    background-color:rgba(130,130,130,0.3);
+    border-radius: 3px;
 }
 </style>
