@@ -30,6 +30,9 @@
             </div>
         </div>
         <div class="login_footer">©CopyRight 2023{{titleEnv}}</div>
+
+        <dot-canvas />
+        <rainbow />
     </div>
 </template>
 <script>
@@ -38,7 +41,10 @@ import { loginApi } from "@/api/index";
 
 import {baseUrl, TITLE_ENV} from '../../src/config/index.js'
 import aes from "@/config/encrypt";
+import DotCanvas from "@/components/dotCanvas.vue";
+import Rainbow from "@/components/rainbow.vue";
 export default {
+    components: {Rainbow, DotCanvas},
     data() {
         return {
             account: "",
@@ -162,7 +168,8 @@ export default {
     display: flex;
     align-items: center; /*垂直居中*/
     justify-content: center; /*水平居中*/
-
+    position: relative;
+    z-index: 1;
     .login_main {
         width: 1000px;
         background: #fff;
