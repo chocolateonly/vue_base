@@ -1,8 +1,7 @@
 <template>
-<!--  文件预览  图片直接打开链接-->
     <div v-if="previewType">
-        <vue-office-docx :src="previewUrl" style="height: 80vh;" v-if="previewType== '.docx'" />
-        <vue-office-excel :src="previewUrl" style="height: 80vh;" v-else-if="previewType== '.xlsx'" />
+        <vue-office-docx :src="previewUrl" v-if="previewType== '.docx'" />
+        <vue-office-excel :src="previewUrl" v-else-if="previewType== '.xlsx'" />
         <vue-office-pdf :src="previewUrl" v-else />
     </div>
 </template>
