@@ -41,7 +41,13 @@ const routes = [
         component: () =>
             import('@/views/register')
     }
-
+    ,
+//     学习记录
+    {
+        path: '/study',
+        name: 'studyRecord',
+        component: () => import('../views/study/study.vue')
+    },
 ]
 const router =new Router({
     history: 'history',
