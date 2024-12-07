@@ -4,13 +4,13 @@
 
 <script>
 
-import { animate, init } from '../assets/js/dotCanvas';
+// import { animate, init } from '../assets/js/dotCanvas';
 
 export default {
   name:'dotCanvas',
   mounted() {
-    init()
-    animate()
+    // init()
+    // animate()
   },
   methods:{
 
